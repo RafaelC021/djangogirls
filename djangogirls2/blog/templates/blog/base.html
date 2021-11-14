@@ -1,0 +1,28 @@
+{% load static %} <!-- Carga los archivos donde se encuentra por ej el blog.css -->
+<html>
+    <head>
+        <title> Django Girls </title>
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}"> <!-- carga blog.css de static -->
+    </head>
+    <body>
+	<div class="main">	
+
+	<h1> Django Girls </h1>
+	
+	{% if user.is_authenticated %}
+	<br>
+	<a href="{% url 'post_new' %}" class='btn card_btn'>Agregar publicación</a>	
+	{% endif %}
+	
+	<br>
+	<a href="{% url 'post_list' %}" class='btn card_btn'>Mostrar todas las publicaciones</a>
+	<br>	
+	
+		    <!-- carga el bloque de django -->
+			{% block content %}
+            {% endblock %}
+			
+	</div>		
+		
+    </body>
+</html>
